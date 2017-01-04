@@ -1,0 +1,32 @@
+<header>
+	<nav class = "navbar navbar-inverse">
+		<div class="nav-header">
+		<a href="/" class="navbar-brand"></a>
+		</div>
+	</nav>
+</header>
+<div class="main">
+	<div class="row">
+		<div class="col-sm-4">
+			<div *ngIf="users">
+				<ul class="list-group users-list">
+					<li class="list-group-item" 
+						*ngFor="let user of users" 
+						(click)="selectUser(user)"
+						[class.active]="user===activeUser">
+						{{user.name}}({{user.nickname}})
+					</li>
+				</ul>	
+			</div>
+			<user-form (userCreated)="onUserCreated($event)"></user-form>
+		</div>
+		<div class="col-sm-8">
+			<user-profile [user]="activeUser"></user-profile>
+			<div class="jumbotron" *ngIf="!activeUser">
+				<h2>Choose a user</h2>
+			</div>
+		</div>
+	</div>
+</div>
+
+<footer class="text-center">Coming soon</footer>

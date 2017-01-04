@@ -9,20 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.name = 'Angular';
-        this.message = 'Hello';
+var user_1 = require('../shared/models/user');
+var UserProfileComponent = (function () {
+    function UserProfileComponent() {
     }
-    AppComponent = __decorate([
+    __decorate([
+        core_1.Input(), 
+        __metadata('design:type', user_1.User)
+    ], UserProfileComponent.prototype, "user", void 0);
+    UserProfileComponent = __decorate([
         core_1.Component({
-            selector: 'my-app',
-            template: "\n\t<header>\n\t\t<nav class = \"navbar navbar-inverse\">\n\t\t\t<div class=\"nav-header\">\n\t\t\t<a href=\"/\" class=\"navbar-brand\"></a>\n\t\t\t</div>\n\t\t</nav>\n\t</header>\n\n\t<div class=\"jumbotron\">\n\t\t<h1>Welcome to Our app</h1>\n\t\t<p>{{ message }}</p>\n\t</div>\n\n\t<footer class=\"text-center\">Coming soon</footer>\n  \t\n  ",
-            styles: ["\n  \t.jumbotron { box-shadow: 0 2px 0 rgba(0,0,0,0.2);}\n  "]
+            selector: 'user-profile',
+            template: "\n\t\t<div class=\"jumbotron\" *ngIf=\"user\">\n\t\t\t<h2>{{user.name}}<small>{{user.nickname}}</small></h2>\n\t\t\t<input type=\"text\" class=\"form-control\" [(ngModel)]=\"user.name\"/>\n\t\t</div>\n\t"
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], UserProfileComponent);
+    return UserProfileComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.UserProfileComponent = UserProfileComponent;
+//# sourceMappingURL=user-profile.component.js.map
